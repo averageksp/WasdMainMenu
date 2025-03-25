@@ -2,7 +2,7 @@
 using KSP;
 using KSP.UI.Screens; // For ApplicationLauncher
 
-namespace KSPCountdown
+namespace WasdMainMenu
 {
     [KSPAddon(KSPAddon.Startup.MainMenu, false)]
     public class CustomMainMenuCamera : MonoBehaviour
