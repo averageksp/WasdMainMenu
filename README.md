@@ -6,12 +6,13 @@
 
 # Troubleshooting
 
-Q: "My Keybinds aren't saving!"
+**Q**: "My Keybinds aren't saving!"
 
-A: In the GamaData folder go to "WasdMainMenu" then "Plugin" if there's not a file in the "Plugin" folder called "WasdKeybinds.txt" then you either make one yourself or the game will make one for you.
+**A**: In the GamaData folder go to "WasdMainMenu" then "Plugin" if there's not a file in the "Plugin" folder called "WasdKeybinds.txt" then you either make one yourself or the game will make one for you.
 
-Q: "Why is the Skybox black?"
-A: To fix the Skybox, just go to either Settings and then just go back it works with anything like Credits. You can also just continue playing since none of your gameplay will me impacted.
+**Q**: "Why is the Skybox black?"
+
+**A**: To fix the Skybox, just go to either Settings and then just go back it works with anything like Credits. You can also just continue playing since none of your gameplay will me impacted.
 
 # Compiling it 
 
