@@ -1,9 +1,34 @@
-# WasdMainMenu
-Explore the Main Menu Screen of KSP!
-
 # Instructions
-Download the latest release.
-Unzip the latest release and put it into the GameData Folder.
+1. Download the latest release or from SpaceDock.
+2. Unzip the File.
+3. Put it into the "GameData" folder.
+4. Launch KSP.
+
+# Troubleshooting
+Q: "My Keybinds aren't saving!"
+A: In the GamaData folder go to "WasdMainMenu" then "Plugin" if there's not a file in the "Plugin" folder called "WasdKeybinds.txt" then you either make one yourself or the game will make one for you.
+
+Q: "Why is the Skybox black?"
+A: To fix the Skybox, just go to either Settings and then just go back it works with anything like Credits. You can also just continue playing since none of your gameplay will me impacted.
+
+# Compiling it 
+
+Download the .cs program.
+
+Open reference manager and select the .dll references below:
+```
+KSPAssets.dll
+Assembly-CSharp.dll
+UnityEngine.CoreModule.dll
+UnityEngine.UI.dll
+UnityEngine.IMGUIModule.dll
+UnityEngine.dll
+UnityEngine.InputLegacyModule.dll
+KSPAssets.XmlSerializers.dll
+UnityEngine.PhysicsModule.dll
+UnityEngine.AnimationsModule.dll
+```
+After that just build the program and put it into the "GameData" folder.
 
 # Versions
 **1.0** 
