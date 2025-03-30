@@ -5,7 +5,9 @@
 4. Launch KSP.
 
 # Troubleshooting
+
 Q: "My Keybinds aren't saving!"
+
 A: In the GamaData folder go to "WasdMainMenu" then "Plugin" if there's not a file in the "Plugin" folder called "WasdKeybinds.txt" then you either make one yourself or the game will make one for you.
 
 Q: "Why is the Skybox black?"
