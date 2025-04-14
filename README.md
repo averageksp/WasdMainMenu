@@ -1,4 +1,6 @@
 # WasdMainMenu 
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Downloads](https://img.shields.io/github/downloads/averageksp/WasdMainMenu/total.svg)
 ![Imgur Image](https://imgur.com/vPivohr.png)
 
 # Instructions
