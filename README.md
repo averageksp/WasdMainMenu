@@ -1,6 +1,6 @@
 # WasdMainMenu 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FKSP-CKAN%2FCKAN-meta%2Frefs%2Fheads%2Fmaster%2Fdownload_counts.json&query=KerbalChecklists&label=Downloads)
+![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FKSP-CKAN%2FCKAN-meta%2Frefs%2Fheads%2Fmaster%2Fdownload_counts.json&query=WasdMainMenu&label=Downloads)
 ![Imgur Image](https://imgur.com/vPivohr.png)
 
 # Instructions
