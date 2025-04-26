@@ -59,7 +59,7 @@ WasdMainMenu is a mod for **Kerbal Space Program** that lets you move around the
 ### **v.1.3**
 - Added Toolbar Icon
 
-### **v.1.3**
+### **v.1.4**
 - Fixed Camera Issues
 - Fixed Toolbar Icon
 
