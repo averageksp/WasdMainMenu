@@ -1,65 +1,63 @@
-# WasdMainMenu 
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FKSP-CKAN%2FCKAN-meta%2Frefs%2Fheads%2Fmaster%2Fdownload_counts.json&query=WasdMainMenu&label=Downloads)
-![Imgur Image](https://imgur.com/vPivohr.png)
+# WasdMainMenu  
+![License](https://img.shields.io/badge/License-MIT-green.svg)  ![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FKSP-CKAN%2FCKAN-meta%2Frefs%2Fheads%2Fmaster%2Fdownload_counts.json&query=WasdMainMenu&label=Downloads)  
+![Imgur Image](https://imgur.com/vPivohr.png)  
 
-# Instructions
-1. Download the latest release or from SpaceDock.
-2. Unzip the File.
-3. Put it into the "GameData" folder.
-4. Launch KSP.
+## Overview  
+WasdMainMenu is a mod for **Kerbal Space Program** that lets you move around the Main Menu.
 
-# Troubleshooting
+## Installation Instructions  
+1. **Download** the latest release from [SpaceDock](https://spacedock.info/mod/3846/WasdMainMenu) or the GitHub releases page.  
+2. **Unzip** the downloaded file.  
+3. **Place** the extracted folder into your `GameData` directory of your KSP installation.  
+4. **Launch** KSP and enjoy the mod.
 
-**Q**: "My Keybinds aren't saving!"
+## Troubleshooting
 
-**A**: In the GamaData folder go to "WasdMainMenu" then "Plugin" if there's not a file in the "Plugin" folder called "WasdKeybinds.txt" then you either make one yourself or the game will make one for you.
+### Keybinds Not Saving
+**Q**: "My keybinds aren't saving!"  
+**A**: Navigate to the `GameData/WasdMainMenu/Plugin` folder. If there isn't a file named `WasdKeybinds.txt`, create one manually, or the game will generate it for you upon launch.
 
-**Q**: "Why is the Skybox black?"
+### Skybox Appears Black
+**Q**: "Why is the skybox black?"  
+**A**: This happens. Simply navigate to **Settings** and return to the main menu (you can also do this by going to **Credits**). The skybox should refresh. Gameplay is not impacted, so you can continue as usual.
 
-**A**: To fix the Skybox, just go to either Settings and then just go back it works with anything like Credits. You can also just continue playing since none of your gameplay will me impacted.
+## Compiling from Source
 
-# Compiling it 
+1. Download the `.cs` source code file.  
+2. Open the **Reference Manager** in your IDE and include the following references:
+    ```bash
+    KSPAssets.dll
+    Assembly-CSharp.dll
+    UnityEngine.CoreModule.dll
+    UnityEngine.UI.dll
+    UnityEngine.IMGUIModule.dll
+    UnityEngine.dll
+    UnityEngine.InputLegacyModule.dll
+    KSPAssets.XmlSerializers.dll
+    UnityEngine.PhysicsModule.dll
+    UnityEngine.AnimationsModule.dll
+    ```
+3. Build the project and move the generated `.dll` file into your `GameData` folder.
 
-Download the .cs program.
+## Changelog  
 
-Open reference manager and select the .dll references below:
-```
-KSPAssets.dll
-Assembly-CSharp.dll
-UnityEngine.CoreModule.dll
-UnityEngine.UI.dll
-UnityEngine.IMGUIModule.dll
-UnityEngine.dll
-UnityEngine.InputLegacyModule.dll
-KSPAssets.XmlSerializers.dll
-UnityEngine.PhysicsModule.dll
-UnityEngine.AnimationsModule.dll
-```
-After that just build the program and put it into the "GameData" folder.
+### **v1.0**  
+- Initial release.
 
-# Versions
-**1.0** 
+### **v1.1**  
+- Fixed CKAN compatibility issues.  
+- Moved mod files from `WasdMainMenu/GameData` to `WasdMainMenu/Plugin` for proper organization.
 
-• Mod Release
+### **v1.2**  
+- Added a **Control GUI** to adjust speed, zoom, and rotation settings.  
+- Introduced a **Settings GUI** to customize keybinds.  
+- Keybinds now save properly.  
+- Changed background to black (to refresh the main menu, go to Settings and return, or simply continue playing).  
+- Added new preset keybinds.  
+- Introduced **Up** and **Down** keybinds (Spacebar for up, Ctrl for down).
 
-**1.1**
+### **v.1.3**
+- Added Toolbar Icon
 
-• Fixed some CKAN issues.
-
-• Changed WasdMainMenu/GameData to WasdMainMenu/Plugin
-
-**1.2**
-
-• Added a Control gui to adjust speed, zoom, rotation.
-
-• Added a Settings gui for Keybinds to add custom keybinds.
-
-• Keybinds will save.
-
-• Changed Background to black. (Note: You have to refresh your main menu e.g. by going to the settings and back so the Skybox can come back)
-
-• New pre-set keybinds.
-
-• Up and down has been introduced (Spacebar to go up and ctrl to go down)
-
+## License  
+This mod is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
