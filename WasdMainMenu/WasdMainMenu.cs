@@ -33,11 +33,11 @@ namespace WasdMainMenu
         private Camera customCamera;
         private Transform camTransform;
 
-        private bool modEnabled = false;
-
         private ApplicationLauncherButton appButton;
-        private Texture2D iconTexture;
+        private Texture2D cameraEnabledIcon;
+        private Texture2D cameraDisabledIcon;
         private bool buttonAdded = false;
+        private bool modEnabled = false;
 
         private bool controlsWindowOpen = false;
         private Rect controlsWindowRect = new Rect(10, 50, 250, 300);
@@ -78,15 +78,6 @@ namespace WasdMainMenu
                 stockMainMenuCamera = Camera.allCameras[0];
             }
 
-            iconTexture = new Texture2D(38, 38);
-            Color[] pixels = new Color[38 * 38];
-            for (int i = 0; i < pixels.Length; i++)
-            {
-                pixels[i] = Color.green;
-            }
-            iconTexture.SetPixels(pixels);
-            iconTexture.Apply();
-
             moveSpeedString = moveSpeed.ToString();
             rotationSpeedString = rotationSpeed.ToString();
             zoomSpeedString = zoomSpeed.ToString();
@@ -122,7 +113,6 @@ namespace WasdMainMenu
 
             if (!foundFolder)
             {
-                // Default to the first folder
                 string fallback = Path.Combine(root, "WasdMainMenu/Plugin");
                 if (!Directory.Exists(fallback))
                 {
@@ -158,20 +148,69 @@ namespace WasdMainMenu
         {
             if (!buttonAdded && ApplicationLauncher.Instance != null)
             {
-                appButton = ApplicationLauncher.Instance.AddModApplication(
-                    OnAppButtonToggleOn, OnAppButtonToggleOff,
-                    null, null, null, null,
-                    ApplicationLauncher.AppScenes.MAINMENU,
-                    iconTexture);
-                buttonAdded = true;
+                LoadIcons();
+
+                if (cameraEnabledIcon != null && cameraDisabledIcon != null)
+                {
+                    appButton = ApplicationLauncher.Instance.AddModApplication(
+                        OnAppButtonToggleOn, OnAppButtonToggleOff,
+                        null, null, null, null,
+                        ApplicationLauncher.AppScenes.MAINMENU,
+                        cameraEnabledIcon); 
+                    buttonAdded = true;
+                }
+                else
+                {
+                    Debug.LogError("[WasdMainMenu] Failed to load toolbar icons.");
+                }
             }
 
-            if (modEnabled && customCamera != null)
+            if (modEnabled) 
             {
-                HandleMovement();
-                HandleRotation();
-                HandleZoom();
+                if (customCamera != null)
+                {
+                    HandleMovement();
+                    HandleRotation();
+                    HandleZoom();
+                }
             }
+        }
+
+        private void LoadIcons()
+        {
+            if (cameraEnabledIcon == null)
+            {
+                cameraEnabledIcon = TryLoadTexture("Camera_Enabled");
+            }
+
+            if (cameraDisabledIcon == null)
+            {
+                cameraDisabledIcon = TryLoadTexture("Camera_Disabled");
+            }
+        }
+
+        private Texture2D TryLoadTexture(string iconName)
+        {
+            string[] possiblePaths = new string[]
+            {
+            "WasdMainMenu-1.3/WasdMainMenu/Textures/" + iconName,
+            "WasdMainMenu/Textures/" + iconName,
+            "WasdMainMenu-1.3/Textures/" + iconName,
+            "WasdMainMenu/WasdMainMenu/Textures/" + iconName
+            };
+
+            foreach (var path in possiblePaths)
+            {
+                var texture = GameDatabase.Instance.GetTexture(path, false);
+                if (texture != null)
+                {
+                    Debug.Log("[WasdMainMenu] Loaded texture from: " + path);
+                    return texture;
+                }
+            }
+
+            Debug.LogError("[WasdMainMenu] Could not find texture: " + iconName);
+            return null;
         }
 
         private void OnDestroy()
@@ -185,6 +224,8 @@ namespace WasdMainMenu
 
         private void OnAppButtonToggleOn()
         {
+            modEnabled = true;
+
             if (!validInstall)
             {
                 ScreenMessages.PostScreenMessage("Invalid WasdMainMenu folder!", 3f, ScreenMessageStyle.UPPER_CENTER);
@@ -196,8 +237,10 @@ namespace WasdMainMenu
                 3f, ScreenMessageStyle.UPPER_CENTER
             );
 
-        modEnabled = true;
-            UpdateIconColor(Color.red);
+            if (appButton != null && cameraEnabledIcon != null)
+            {
+                appButton.SetTexture(cameraEnabledIcon);
+            }
 
             if (stockMainMenuCamera != null)
                 stockMainMenuCamera.gameObject.SetActive(false);
@@ -209,13 +252,17 @@ namespace WasdMainMenu
         private void OnAppButtonToggleOff()
         {
             modEnabled = false;
-            UpdateIconColor(Color.green);
 
             if (customCamera != null)
             {
                 Destroy(customCamera.gameObject);
                 customCamera = null;
                 camTransform = null;
+            }
+
+            if (appButton != null && cameraDisabledIcon != null)
+            {
+                appButton.SetTexture(cameraDisabledIcon);
             }
 
             if (stockMainMenuCamera != null)
@@ -453,19 +500,6 @@ namespace WasdMainMenu
             keyBindings["BankRight"] = KeyCode.E;
             keyBindings["SpeedUp"] = KeyCode.R;
             keyBindings["SlowDown"] = KeyCode.F;
-        }
-
-        private void UpdateIconColor(Color c)
-        {
-            if (iconTexture == null) return;
-
-            Color[] pixels = iconTexture.GetPixels();
-            for (int i = 0; i < pixels.Length; i++)
-            {
-                pixels[i] = c;
-            }
-            iconTexture.SetPixels(pixels);
-            iconTexture.Apply();
         }
 
         private void SaveKeybindsToFile()
