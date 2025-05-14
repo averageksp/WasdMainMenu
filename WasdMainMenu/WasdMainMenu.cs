@@ -96,7 +96,7 @@ namespace WasdMainMenu
             {
                 "WasdMainMenu/Plugin",
                 "WasdMainMenu/WasdMainMenu/Plugin",
-                "WasdMainMenu-1.2/WasdMainMenu/Plugin"
+                "WasdMainMenu-1.4/WasdMainMenu/Plugin"
             };
 
             bool foundFolder = false;
